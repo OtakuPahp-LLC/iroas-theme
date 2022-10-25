@@ -1,15 +1,15 @@
 <?php
 
-if ( ! function_exists( 'otakupahptest_support' ) ) :
+if ( ! function_exists( 'iroas_theme_support' ) ) :
 
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
-	 * @since otakupahptest 1.0
+	 * @since iroas-theme 1.0
 	 *
 	 * @return void
 	 */
-	function otakupahptest_support() {
+	function iroas_theme_support() {
 		// Add support for block styles.
 		add_theme_support( 'wp-block-styles' );
 
@@ -22,30 +22,30 @@ if ( ! function_exists( 'otakupahptest_support' ) ) :
 	}
 
 endif;
-add_action( 'after_setup_theme', 'otakupahptest_support' );
+add_action( 'after_setup_theme', 'iroas_theme_support' );
 
 /*
 Enqueue styles and scripts
 */
 
-if ( ! function_exists( 'iroasformacion_styles' ) ) :
+if ( ! function_exists( 'iroas_theme_estilos_scripts' ) ) :
 	
-    function iroasformacion_styles(){
+    function iroas_theme_estilos_scripts(){
 		$theme_version = wp_get_theme()->get( 'Version' );
 
 		$version_string = is_string( $theme_version ) ? $theme_version : false;
 		
 		wp_register_style(
-			'iroasformacion-style',
+			'iroas-theme-style',
 			get_template_directory_uri() . '/style.css',
 			array(),
 			$version_string
 		);
-		wp_enqueue_style( 'iroasformacion-style' );
+		wp_enqueue_style( 'iroas-theme-style' );
 		
 		
     }
 
 endif;
 
-add_action('wp_enqueue_scripts', 'iroasformacion_styles' ); 
+add_action('wp_enqueue_scripts', 'iroas_theme_estilos_scripts' ); 
