@@ -1,0 +1,277 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+        "layout": {
+            "contentSize": "650px",
+            "wideSize": "1140px"
+        },
+        "color": {
+            "palette": [
+                {
+                    "color": "#FFFFFF",
+                    "name": "Iroas white",
+                    "slug": "iroas-white"
+                },
+                {
+                    "color": "#FD8324",
+                    "name": "Iroas Orange",
+                    "slug": "iroas-orange"
+
+                },
+                {
+                    "color": "#FF9E52",
+                    "name": "Iroas Orange Mouseover",
+                    "slug": "iroas-orange-mouseover"
+                },
+                {
+                    "color": "#FD8324",
+                    "name": "Iroas Orange Click",
+                    "slug": "iroas-orange-click"
+                },
+                {
+                    "color": "#043953",
+                    "name": "Iroas Blue",
+                    "slug": "iroas-blue"
+                },
+                {
+                    "color": "#34333A",
+                    "name": "Iroas Black",
+                    "slug": "iroas-black"
+                },
+                {
+                    "color": "#04395338",
+                    "name": "Iroas Blue 2",
+                    "slug": "iroas-blue-2"
+                },
+                {
+                    "color": "#34333A",
+                    "name": "Iroas Grey",
+                    "slug": "iroas-gray"
+                },
+                {
+                    "color": "#AAAAAA",
+                    "name": "Iroas Grey 2",
+                    "slug": "iroas-grey-2"
+                },
+                {
+                    "color": "#F5F5F5",
+                    "name": "Iroas Grey 3",
+                    "slug": "iroas-grey-3"
+                },
+                {
+                    "color": "#000000c2",
+                    "name": "Iroas Menu Black",
+                    "slug": "iroas-menu-black"
+                }
+            ]
+        },
+        "typography": {
+            "fontFamilies": [
+                {
+                    "fontFamily": "\"Montserrat\", sans-serif",
+                    "name": "Montserrat",
+                    "slug": "montserrat",
+                    "fontFace": [
+                        {
+							"fontFamily": "Montserrat",
+							"fontWeight": "400",
+							"fontStyle": "regular",
+							"fontStretch": "normal",
+							"src": [ "file:./assets/fonts/Montserrat-Regular.ttf" ]
+						},
+                        {
+                            "fontFamily": "Montserrat",
+                            "fontWeight": "500",
+                            "fontStyle": "medium",
+                            "src": ["file:./assets/fonts/Montserrat-Medium.ttf"]
+                        },
+                        {
+                            "fontFamily": "Montserrat",
+                            "fontWeight": "600",
+                            "fontStyle": "semibold",
+                            "src": ["file:./assets/fonts/Montserrat-SemiBold.ttf"]
+                        },
+                        {
+                            "fontFamily": "Montserrat",
+                            "fontWeight": "700",
+                            "fontStyle": "bold",
+                            "src": ["file:./assets/fonts/Montserrat-Bold.ttf"]
+                        },
+                        {
+                            "fontFamily": "Montserrat",
+                            "fontWeight": "900",
+                            "fontStyle": "black",
+                            "src": ["file:./assets/fonts/Montserrat-Black.ttf"]
+                        }
+                    ]
+                },
+                {
+                    "fontFamily": "\"Nunito Sans\", sans-serif",
+                    "name": "Nunito Sans",
+                    "slug": "nunito-sans",
+                    "fontFace": [
+                        {
+							"fontFamily": "Nunito Sans",
+							"fontWeight": "400",
+							"fontStyle": "regular",
+							"fontStretch": "normal",
+							"src": [ "file:./assets/fonts/NunitoSans-Regular.ttf" ]
+						},
+                        {
+                            "fontFamily": "Nunito Sans",
+                            "fontWeight": "700",
+                            "fontStyle": "bold",
+                            "src": ["file:./assets/fonts/NunitoSans-Bold.ttf"]
+                        }
+                    ]
+                }
+            ],
+            "fontSizes": [
+                {
+                    "size": "1.25rem",
+                    "slug": "menu"
+                },
+                {
+                    "size": "1.56rem",
+                    "slug": "parrafo"
+                },
+                {
+                    "size": "1.875rem",
+                    "slug": "h-3"
+                },
+                {
+                    "size": "2.625rem",
+                    "slug": "h-2"
+                },
+                {
+                    "size": "3rem",
+                    "slug": "h-1"
+                },
+                {
+                    "size": "0.625rem",
+                    "slug": "menu-mobile"
+                },
+                {
+                    "size": "0.75rem",
+                    "slug": "parrafo-mobile"
+                },
+				{
+                    "size": "1rem",
+                    "slug": "h-3-mobile"
+                },
+                {
+                    "size": "1.25rem",
+                    "slug": "h-2-mobile"
+                },
+                {
+                    "size": "1.375rem",
+                    "slug": "h-1-mobile"
+                },
+                {
+                    "size": "1rem",
+                    "slug": "normal-regular"
+                }
+            ]
+        },
+        "custom": {
+            "typography": {
+				"font-size": {
+					"huge": "clamp(2.25rem, 4vw, 2.75rem)",
+					"gigantic": "clamp(2.75rem, 6vw, 3.25rem)",
+					"colossal": "clamp(3.25rem, 8vw, 6.25rem)"
+				},
+				"line-height": {
+					"menu-mobile": 1.2,
+					"h-3-mobile": 1.2,
+					"h-2-mobile": 1.2,
+                    "h-1-mobile": 1.2,
+                    "parrafo-mobile": 1.2,
+					"menu": 1.2,
+					"parrafo": 1.2,
+                    "h-3": 1.2,
+                    "h-2": 1.2,
+                    "h-1": 1.2,
+                    "general-normal": 1.2
+				}
+			}
+        }
+    },
+    "styles": {
+        "blocks": {
+            "core/button": {
+                "border": {
+                    "radius": "3.125rem",
+                    "width": "0"
+                },
+                "color": {
+                    "background": "var(--wp--preset--color--iroas-orange)",
+                    "text": "var(--wp--preset--color--iroas-white)"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "var(--custom-button-padding-top)",
+                        "bottom": "var(--custom-button-padding-bottom)",
+                        "left": "var(--custom-button-padding-left)",
+                        "right": "var(--custom-button-padding-right)"
+                    }
+                }
+            }
+        },
+        "color": {
+            "background": "var(--wp--preset--color--iroas-white)",
+            "text": "var(--wp--preset--color--iroas-black)"
+        },
+        "typography": {
+            "fontFamily": "var(--wp--preset--font-family--montserrat)",
+            "fontSize": "var(--wp--preset--font-size--parrafo)",
+            "fontWeight": "400"
+        },
+        "elements": {
+            "h1": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--h-1)",
+                    "fontWeight": "900",
+                    "lineHeight": "var(--wp--custom--typography--line-height--general-normal)",
+                    "letterSpacing": "var(--custom-letter-spacing)"
+                }
+            },
+            "h2": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--h-2)",
+                    "fontWeight": "600",
+                    "lineHeight": "var(--wp--custom--typography--line-height--general-normal)",
+                    "letterSpacing": "var(--custom-letter-spacing)"
+                }
+            },
+            "h3": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--h-3)",
+                    "fontWeight": "600",
+                    "lineHeight": "var(--wp--custom--typography--line-height--general-normal)",
+                    "letterSpacing": "var(--custom-letter-spacing)"
+                }
+            },
+            "link": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--menu)",
+                    "fontWeight": "500",
+                    "lineHeight": "var(--wp--custom--typography--line-height--general-normal)",
+                    "letterSpacing": "var(--custom-letter-spacing)"
+                },
+                "color": {
+                    "text": "var(--wp--preset--color--iroas-menu-black)"
+                },
+                ":hover": {
+                    "color": {
+                        "text": "var(--wp--preset--color--iroas-orange)"
+                    }
+                }
+            }
+        }
+    }
+}

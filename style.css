@@ -1,0 +1,55 @@
+/*
+Theme Name: iroasformacion
+Author: Luis Otero
+Text Domain: iroasformacion
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.0
+Version: 1.0.0
+
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+All files, unless otherwise stated, are released under the GNU General Public
+License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned
+with others.
+*/
+
+/*
+Variables generales
+*/
+:root {
+    --custom-letter-spacing: -0.025em;
+
+    /*Padding del botón*/
+    --custom-button-padding-top: 1.063rem;
+    --custom-button-padding-bottom: 1.063rem;
+    --custom-button-padding-left: 2.25rem;
+    --custom-button-padding-right: 2.25rem;
+
+    
+    
+}
+
+
+@media (max-width:768px) {
+    :root {
+        /*Padding del botón en mobil*/
+        --custom-button-padding-top: 0.54rem;
+        --custom-button-padding-bottom: 0.54rem;
+        --custom-button-padding-left: 1.54rem;
+        --custom-button-padding-right: 1.54rem;
+    }
+
+    body {
+        /*Tamaño del texto en mobil*/
+        --wp--preset--font-size--menu: var(--wp--preset--font-size--menu-mobile);
+        --wp--preset--font-size--parrafo: var(--wp--preset--font-size--parrafo-mobile);
+        --wp--preset--font-size--h-3: var(--wp--preset--font-size--h-3-mobile);
+        --wp--preset--font-size--h-2: var(--wp--preset--font-size--h-2-mobile);
+        --wp--preset--font-size--h-1: var(--wp--preset--font-size--h-1-mobile);
+    }
+}
