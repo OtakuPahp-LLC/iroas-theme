@@ -1,51 +1,48 @@
 <?php
+/**
+ * Functions and definitions
+ *
+ * @package otakupahp-iroas-theme
+ *
+ * @since 1.0.0
+ */
 
-if ( ! function_exists( 'iroas_theme_support' ) ) :
-
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * @since iroas-theme 1.0
-	 *
-	 * @return void
-	 */
-	function iroas_theme_support() {
-		// Add support for block styles.
-		add_theme_support( 'wp-block-styles' );
-
-		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
-		
-		//Agregar soporte para Woocommerce
-		add_theme_support( 'woocommerce' );
-
-	}
-
-endif;
-add_action( 'after_setup_theme', 'iroas_theme_support' );
-
-/*
-Enqueue styles and scripts
-*/
-
-if ( ! function_exists( 'iroas_theme_estilos_scripts' ) ) :
+/**
+ * Enqueue the style.css file.
+ *
+ * @since 1.0.0
+ */
+function otk_iroas_styles() {
+    
+    // Get version of JS and CSS
+	$js_ver  = date( "ymd-Gis", filemtime( get_stylesheet_directory() . '/scripts.js' ) );
+	$css_ver = date( "ymd-Gis", filemtime( get_stylesheet_directory() . '/style.css' ) );
 	
-    function iroas_theme_estilos_scripts(){
-		$theme_version = wp_get_theme()->get( 'Version' );
+	wp_enqueue_style(
+		'otk-iroas-style',
+		get_stylesheet_uri(),
+		array(),
+		$css_ver
+	);
+	wp_enqueue_script(
+	    'otk-iroas-script',
+	    get_stylesheet_directory_uri() . '/scripts.js',
+	    array(),
+	    $js_ver
+	);
+	
+}
+add_action( 'wp_enqueue_scripts', 'otk_iroas_styles' );
 
-		$version_string = is_string( $theme_version ) ? $theme_version : false;
-		
-		wp_register_style(
-			'iroas-theme-style',
-			get_template_directory_uri() . '/style.css',
-			array(),
-			$version_string
-		);
-		wp_enqueue_style( 'iroas-theme-style' );
-		
-		
-    }
+/**
+ * Define theme support.
+ *
+ * @since 1.0.0
+ */
+function otk_iroas_theme_support() {
 
-endif;
+	// Add support for featured images.
+	add_theme_support('post-thumbnails');
 
-add_action('wp_enqueue_scripts', 'iroas_theme_estilos_scripts' ); 
+}
+//add_action('after_setup_theme', 'otk_iroas_theme_support');

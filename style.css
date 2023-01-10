@@ -1,55 +1,558 @@
 /*
-Theme Name: iroas-theme
-Author: Luis Otero
-Text Domain: iroas-theme
-Requires at least: 6.0
-Requires PHP: 7.4
-Tested up to: 6.0
-Version: 1.0.0
-
+Theme Name: OtakuPahp Iroas Theme
+Author: OtakuPahp team
+Description: Block theme for Iroas.
+Requires at least: 6.1
+Tested up to: 6.1
+Requires PHP: 5.6
+Version: 1.0
 License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-All files, unless otherwise stated, are released under the GNU General Public
-License version 2.0 (http://www.gnu.org/licenses/gpl-2.0.html)
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned
-with others.
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: otakupahp-iroas-theme
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, accessibility-ready, blog, portfolio, news
 */
 
-/*
-Variables generales
-*/
-:root {
-    --custom-letter-spacing: -0.025em;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 114px;
+} 
 
-    /*Padding del botón*/
-    --custom-button-padding-top: 1.063rem;
-    --custom-button-padding-bottom: 1.063rem;
-    --custom-button-padding-left: 2.25rem;
-    --custom-button-padding-right: 2.25rem;
 
+/*Eliminar espacio entre bloques*/
+.wp-site-blocks > *, .wp-site-blocks > div {
+  margin-block-start: 0 !important;
+}
+
+body .is-layout-flow > div, body .is-layout-constrained > div {
+  margin-block-start: 0;
+}
+
+/*Aplicar color naranja al enlace cuando su página correspondiente esta activa*/
+.wp-block-navigation__container a[aria-current="page"] {
+  color: var(--wp--preset--color--iroas-naranja);
+  font-weight: 500;
+}
+
+/*Aplicar transición a todos los enlaces*/
+a, button {
+  transition: all 0.5s;
+}
+
+/*Altura del hero*/
+.fila-hero-page  {
+  box-sizing: border-box;  
+}
+
+/*Establecer cabecera sticky*/
+.cabecera-altura {
+  position: sticky;
+}
+
+.header-sticky > div {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    box-sizing: content-box;
+}
+
+.logotipo-imagen figure {
+  transition: all 0.5s;
+}
+
+.logotipo-header {
+  z-index: 2;  
+}
+.navegacion-header {
+  z-index: 3;
+}
+
+/*Corregir elementos sobrepuestos al menu de hamburguesa en mobil*/
+.wp-site-blocks > div {
+  position: relative;
+  z-index: 6;
+}
+
+.wp-site-blocks > div:nth-child(1) {
+  z-index: 9;
+}
+
+/*Altura de la sección hero*/
+.fila-hero-page > div:nth-child(1) > div:nth-child(2) {
+  height: calc(100vh - 116px);
+}
+
+@media (max-width: 600px){
+      html {
+        scroll-padding-top: 0;
+     }  
+     .fila-hero-page > div:nth-child(1) > div:nth-child(2) {
+        height: calc(100vh - 82px);
+      }
+      .header-sticky > div {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+      }
+     
+    /*Estilos para el menú en móvil*/
+    .navegacion-movil ul {
+    	gap: 0px !important;
+    	align-items: unset !important;
+    }
     
+    .navegacion-movil ul.wp-block-navigation__submenu-container {
+    	padding: 0 !important;
+    }
+    
+    .navegacion-movil ul li {
+    	align-items: unset !important;
+    }
+    
+    .navegacion-movil ul li a {
+    	box-sizing: border-box;
+    	width: 90vw;
+    	padding-top: 7px !important;
+    	padding-bottom: 7px !important;
+    	padding-left: 8px !important;
+    }
+    
+    .navegacion-movil li.current-menu-item a {
+      color: var(--wp--preset--color--iroas-celeste);
+      font-weight: 600;
+    }
+    
+    .navegacion-movil ul.wp-block-navigation__submenu-container li a {
+    	padding-left: 16px !important;
+    } 
+    
+    .navegacion-movil ul.wp-block-navigation__submenu-container li a span {
+    	background-image: url(https://iroasformacion.com/wp-content/uploads/2022/12/icono-kadence-play-1.svg);
+        background-position: center left;
+        background-repeat: no-repeat;
+        background-size: 6px;
+        padding-left: 10px;
+    
+    }
     
 }
 
+.linea-bajo-titulo-color::after {
+    content: '';
+    width: 80px;
+    height: 2px;
+    background-color: var(--wp--preset--color--iroas-celeste);
+    display: block;
+    margin-top: 0.8rem;
+}
 
-@media (max-width:768px) {
-    :root {
-        /*Padding del botón en mobil*/
-        --custom-button-padding-top: 0.54rem;
-        --custom-button-padding-bottom: 0.54rem;
-        --custom-button-padding-left: 1.54rem;
-        --custom-button-padding-right: 1.54rem;
-    }
+.linea-bajo-titulo-blanco::after {
+    content: '';
+    width: 80px;
+    height: 2px;
+    background-color: white;
+    display: block;
+    margin-top: 0.8rem;
+}
 
-    body {
-        /*Tamaño del texto en mobil*/
-        --wp--preset--font-size--menu: var(--wp--preset--font-size--menu-mobile);
-        --wp--preset--font-size--parrafo: var(--wp--preset--font-size--parrafo-mobile);
-        --wp--preset--font-size--h-3: var(--wp--preset--font-size--h-3-mobile);
-        --wp--preset--font-size--h-2: var(--wp--preset--font-size--h-2-mobile);
-        --wp--preset--font-size--h-1: var(--wp--preset--font-size--h-1-mobile);
+/*Alinear correctamente el ícono de trueno en tableta y móvil*/
+@media (max-width: 1024px){
+  .alinear-icono-titulo li .kt-svg-icon-list-text {
+    margin-top: 3px;
+  }
+}
+
+.texto-parrafo .kt-testimonial-content {
+  font-size: var(--wp--preset--font-size--iroas-paragraph) !important;
+}
+
+.quitar-borde .kt-testimonial-text-wrap {
+  border: none;
+}
+
+/*Eliminar flecha que apunta hacia abajo*/
+.quitar-flecha .kt-testimonial-text-wrap::after {
+  display: none;
+}
+
+/*Centrar imagen en movil*/
+@media (max-width: 600px) {
+  .centrar-movil .kt-testimonial-title-wrap, .centrar-movil .kt-testimonial-content-wrap {
+    clear: both;
+    text-align: center;
+  } 
+
+  .centrar-movil .kt-testimonial-media-wrap {
+    width: 100%;
+  }
+
+   .centrar-movil .kt-testimonial-media-inner-wrap {
+    margin-left: auto !important;
+    margin-right: auto !important;
+   }
+}
+
+ /*Estilos en el título de cada entrada del blog*/
+.blog-entradas-grilla h3 a, .blog-entradas-grilla h4 a {
+   font-weight: 600;
+}
+
+/*Ocultar la tabla de contenidos para mòvil en escritorio*/
+.tabla-de-contenidos-movil {
+    display: none;
+}
+@media (max-width: 600px) {
+    .tabla-de-contenidos-movil {
+        display: unset;
     }
+}
+
+/*Tamaño de texto de los títulos de las pestañas*/
+.pestanias-imagen-fondo ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-transfomate ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-salvar-mundo ul li a.kt-tab-title span.kt-title-text
+  {
+   font-size: 1.1rem;
+  }
+
+/*Tamaño de texto de los títulos de las pestañas en móvil*/
+@media (max-width: 600px) {
+  .pestanias-imagen-fondo ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-transfomate ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-salvar-mundo ul li a.kt-tab-title span.kt-title-text
+  {
+   font-size: 0.78rem;
+  }
+}
+
+/*Altura minima del elemento span dentro de cada pestania*/
+.pestanias-imagen-fondo ul li a.kt-tab-title span.kt-title-text {
+  display: flex;
+min-height: 16rem;
+flex-direction: column;
+justify-content: center;
+align-self: stretch;
+transition: all 0.5s;
+}
+
+/*Altura minima de cada pestania*/
+.pestanias-imagen-fondo ul li a.kt-tab-title {
+  min-height: 16rem;
+}
+
+/*Overlay para la imagen de fondo en las pestañas*/
+.pestanias-imagen-fondo ul li a.kt-tab-title {
+   background: #0006 !important;
+   color: var(--wp--preset--color--iroas-blanco) !important;
+}
+
+/*Colocar imagen de fondo en cada elemento li*/
+.pestanias-imagen-fondo ul li {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.pestanias-imagen-fondo ul li:nth-child(1) {
+	background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/4100661.jpg') !important;
+
+}
+
+.pestanias-imagen-fondo ul li:nth-child(2) {
+	background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/6211093.jpg') !important;
+}
+
+
+/*Colocar color de fondo en cada elemento span*/
+.pestanias-imagen-fondo ul li:nth-child(1) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-imagen-fondo ul li:nth-child(2) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+/*Ocultar imagen de fondo y mostar color de fondo*/
+.pestanias-dos-imagenes ul li:nth-child(1) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-dos-imagenes ul li:nth-child(2) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+@media (max-width: 600px) {
+  .pestanias-imagen-fondo ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-imagen-fondo ul li a.kt-tab-title{
+    min-height: 8rem;
+    max-height: 8rem;
+  }
+}
+
+
+/*Altura minima del elemento span dentro de cada pestania*/
+.pestanias-transfomate ul li a.kt-tab-title span.kt-title-text {
+  min-height: 12rem;
+}
+
+/*Altura minima de cada pestania*/
+.pestanias-transfomate ul li a.kt-tab-title {
+  min-height: 12rem;
+}
+
+/*Colocar imagen de fondo en cada elemento li*/
+.pestanias-transfomate ul li:nth-child(1) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/5333818.jpg') !important;
+}
+
+.pestanias-transfomate ul li:nth-child(2) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/7218570.jpg') !important;
+}
+
+.pestanias-transfomate ul li:nth-child(3) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/4098367.jpg') !important;
+}
+
+/*Colocar color de fondo en cada elemento span*/
+.pestanias-transfomate ul li:nth-child(1) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-transfomate ul li:nth-child(2) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris-medio) !important;
+}
+
+.pestanias-transfomate ul li:nth-child(3) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+/*Ocultar color de fondo y mostar imagen de fondo*/
+.pestanias-transfomate ul li:nth-child(1) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-transfomate ul li:nth-child(2) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris-medio) !important;
+}
+
+.pestanias-transfomate ul li:nth-child(3) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+@media (max-width: 600px) {
+  .pestanias-transfomate ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-transfomate ul li a.kt-tab-title{
+    min-height: 6rem;
+    max-height: 6rem;
+  }
+}
+
+/*Altura minima del elemento span dentro de cada pestania*/
+.pestanias-salvar-mundo ul li a.kt-tab-title span.kt-title-text {
+  min-height: 12rem;
+}
+
+/*Altura minima de cada pestania*/
+.pestanias-salvar-mundo ul li a.kt-tab-title {
+  min-height: 12rem;
+}
+
+/*Colocar imagen de fondo en cada elemento li*/
+.pestanias-salvar-mundo ul li {
+  background-position: center;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(1) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/19677.jpg') !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(2) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/3280130.jpg') !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(3) {
+  background-image: url('https://iroasformacion.com/wp-content/uploads/2022/12/1181605.jpg') !important;
+}
+
+/*Colocar color de fondo en cada elemento span*/
+.pestanias-salvar-mundo ul li:nth-child(1) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(2) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	
+       background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(3) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris-medio) !important;
+}
+
+/*Ocultar color de fondo y mostar imagen de fondo*/
+.pestanias-salvar-mundo ul li:nth-child(1) a.kt-tab-title[aria-selected="true"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(2) a.kt-tab-title[aria-selected="true"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris-medio) !important;
+}
+
+.pestanias-salvar-mundo ul li:nth-child(3) a.kt-tab-title[aria-selected="true"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-celeste) !important;
+}
+
+@media (max-width: 600px) {
+  .pestanias-salvar-mundo ul li a.kt-tab-title span.kt-title-text,
+  .pestanias-salvar-mundo ul li a.kt-tab-title{
+    min-height: 6rem;
+    max-height: 6rem;
+  }
+}
+
+/*Convertir enlace a botón en el carrusel*/
+.enlace-a-boton .kt-testimonial-name a {
+  background-color: var(--wp--preset--color--iroas-naranja);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+/*Agreagar border redondos*/
+.agregar-border-redondos .kt-testimonial-media-inner-wrap{
+  border-radius: 8px 8px 0 0;
+}
+
+.enlace-a-boton .kt-testimonial-name a:hover {
+   background-color: var(--wp--preset--color--iroas-azul);
+}
+
+/*Agregar sombra en las entradas de la pàgina de archivo*/
+.agregar-sombra > li {
+   box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 14px 0px;
+   border-radius: 8px 8px 0 0;
+}
+
+/*Altura minima del elemento span dentro de cada pestania*/
+.tres-pestanias-con-imagen ul li a.kt-tab-title span.kt-title-text {
+  display: flex;
+  padding: 0 0.25rem;
+  min-height: 13rem;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  transition: all 0.5s;
+}
+
+/*Altura minima de cada pestania*/
+.tres-pestanias-con-imagen ul li a.kt-tab-title {
+  min-height: 13rem;
+}
+
+/*Overlay para la imagen de fondo*/
+.tres-pestanias-con-imagen ul li a.kt-tab-title {
+   background: #0006 !important;
+}
+
+/*Colocar imagen de fondo en cada elemento li*/
+.tres-pestanias-con-imagen ul li {
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.tres-pestanias-con-imagen ul li:nth-child(1) {
+	background-image: url('https://iroasformacion.com/wp-content/uploads/2022/11/vfjnewjaa2g.jpg') !important;
+
+}
+
+.tres-pestanias-con-imagen ul li:nth-child(2) {
+	background-image: url('https://iroasformacion.com/wp-content/uploads/2022/11/z2imfocaffk.jpg') !important;
+  }
+
+.tres-pestanias-con-imagen ul li:nth-child(3) {
+	background-image: url('https://iroasformacion.com/wp-content/uploads/2022/11/eavs-4kngrk.jpg') !important;
+}
+/*Color blanco en los enlaces*/
+.tres-pestanias-con-imagen ul li a span {
+  color: #fff !important;
+}
+
+/*Colocar color de fondo en cada elemento span*/
+.tres-pestanias-con-imagen ul li:nth-child(1) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.tres-pestanias-con-imagen ul li:nth-child(2) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris) !important;
+}
+
+.tres-pestanias-con-imagen ul li:nth-child(3) a.kt-tab-title[aria-selected="true"] span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-azul) !important;
+}
+
+/*Ocultar imagen de fondo y mostar color de fondo*/
+.tres-pestanias-con-imagen ul li:nth-child(1) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+.tres-pestanias-con-imagen ul li:nth-child(2) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-gris) !important;
+}
+
+.tres-pestanias-con-imagen ul li:nth-child(3) a.kt-tab-title[aria-selected="false"]:hover span.kt-title-text {
+	background-color: var(--wp--preset--color--iroas-azul) !important;
+}
+
+@media (max-width: 600px) {
+  .tres-pestanias-con-imagen ul li a.kt-tab-title span.kt-title-text {
+    min-height: 7rem;
+  }
+
+  .tres-pestanias-con-imagen ul li a.kt-tab-title {
+    min-height: 7rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cambiar-color-texto {
+    color: var(--wp--preset--color--iroas-gris) !important;
+  }
+}
+
+/*Rellenar de color toda la altura de la segunda columna del blog*/
+.rellenar-color-columna {
+  background-color: var(--wp--preset--color--iroas-gris-claro);
+}
+
+/*Estilos en el título de cada entrada del blog*/
+.blog-entradas-grilla h3 a, .blog-entradas-grilla h4 a {
+   font-weight: 500;
+   color: var(--wp--preset--color--iroas-azul) !important;
+}
+
+.blog-entradas-grilla h3 a:hover, .blog-entradas-grilla h4 a:hover {
+  color: var(--wp--preset--color--iroas-naranja) !important;
+}
+
+/*Estilos del resumen*/
+.blog-entradas-grilla .entry-content {
+  font-size: var(--wp--preset--font-size--iroas-paragraph) !important;
+}
+
+  /*Estilos en el título de cada entrada del blog*/
+.blog-entradas-grilla h3 a, .blog-entradas-grilla h4 a {
+   font-weight: 600;
+}
+
+.mailpoet_form_html a {
+    font-size: inherit;
+}
+
+.mailpoet_form_html .mailpoet_text {
+    width: -webkit-fill-available;
+}
+
+.mailpoet_submit {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
+
+.mailpoet_paragraph input {
+    box-sizing: border-box;
 }
